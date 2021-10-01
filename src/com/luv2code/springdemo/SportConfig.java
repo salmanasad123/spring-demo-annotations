@@ -3,11 +3,13 @@ package com.luv2code.springdemo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 // this class will be used for our spring container configuration
 // instead of xml based configuration, we are defining beans in java class rather than defining them in xml
 @Configuration
 @ComponentScan("com.luv2code.springdemo")
+@PropertySource("classpath:sport.properties") // load the properties file into our spring configuration file
 // spring will scan the given package for classes marked with @Component annotation
 public class SportConfig {
 
