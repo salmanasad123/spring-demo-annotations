@@ -1,6 +1,7 @@
 package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 // here we didn't specify any bean id so it will use the default bean it (i.e. take first letter of the
@@ -25,6 +26,7 @@ public class CricketCoach implements Coach {
     // it will automatically inject the object of that class into our setter method using @Autowired annotation
     // so it will automatically wire up the object
     @Autowired
+    @Qualifier("happyFortuneService")
     public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }

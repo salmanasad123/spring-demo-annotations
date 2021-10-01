@@ -1,6 +1,7 @@
 package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,6 +11,7 @@ public class FootballCoach implements Coach{
     // interface without any setter methods or constructor, it will set the field value right where
     // we define. This is achieved using Java Reflection
     @Autowired
+    @Qualifier("happyFortuneService")
     private FortuneService fortuneService;
 
     @Override
