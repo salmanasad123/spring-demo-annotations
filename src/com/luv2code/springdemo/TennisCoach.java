@@ -9,6 +9,7 @@ public class TennisCoach implements Coach {
 
     private FortuneService fortuneService;
 
+    // constructor injection
     // automatically wire the fortune service implementation
     // create the object of implementation of fortune service and inject it into the constructor
     @Autowired
