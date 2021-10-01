@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FootballCoach implements Coach{
+public class FootballCoach implements Coach {
 
     // field injection, Spring will automatically inject the implementation of the FortuneService
     // interface without any setter methods or constructor, it will set the field value right where
@@ -13,6 +13,10 @@ public class FootballCoach implements Coach{
     @Autowired
     @Qualifier("happyFortuneService")
     private FortuneService fortuneService;
+
+    public FootballCoach() {
+
+    }
 
     @Override
     public String getDailyWorkout() {

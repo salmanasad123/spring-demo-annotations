@@ -1,10 +1,12 @@
 package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 // if you don't specify the bean id the default bean id is the class name with first letter lowercase
 @Component("thatSillyCoach")
+@Scope("singleton") // only 1 instance will be created for this bean
 public class TennisCoach implements Coach {
 
     private FortuneService fortuneService;
