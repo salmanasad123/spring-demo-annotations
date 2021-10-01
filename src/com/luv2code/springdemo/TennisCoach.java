@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 // if you don't specify the bean id the default bean id is the class name with first letter lowercase
 @Component("thatSillyCoach")
 @Scope("singleton") // only 1 instance will be created for this bean
@@ -27,6 +30,20 @@ public class TennisCoach implements Coach {
     @Override
     public String getDailyFortune() {
         return fortuneService.getDailyFortune();
+    }
+
+    // this method will execute after the bean is created, it's a life cycle hook
+    @PostConstruct
+    public void doMyStartupStuff() {
+        System.out.println("Bean is created");
+        System.out.println("Inside doMyStartupStuff() ");
+    }
+
+    // this method will execute before the bean is destroyed so we mark it with @PreDestroy annotation
+    @PreDestroy
+    public void doMyCleanUpStuff() {
+        System.out.println("Bean is about to be destroyed");
+        System.out.println("Inside doMyCleanUpStuff() ");
     }
 
 }
