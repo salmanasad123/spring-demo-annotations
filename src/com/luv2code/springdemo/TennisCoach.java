@@ -1,6 +1,7 @@
 package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ public class TennisCoach implements Coach {
     // automatically wire the fortune service implementation
     // create the object of implementation of fortune service and inject it into the constructor
     @Autowired
-    public TennisCoach(FortuneService fortuneService) {
+    public TennisCoach(@Qualifier("happyFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
